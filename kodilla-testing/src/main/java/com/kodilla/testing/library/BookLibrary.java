@@ -21,10 +21,8 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-
-
-
-        return null;
+        List<Book> bookList = libraryDatabase.listBooksInHandsOf(libraryUser);
+        return bookList;
     }
 }
 
