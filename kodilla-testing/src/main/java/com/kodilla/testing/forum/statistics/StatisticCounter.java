@@ -45,9 +45,18 @@ public class StatisticCounter {
         usersCount = statistics.usersNames().size();
         postsCount = statistics.postsCount();
         commentsCount = statistics.commentsCount();
-        averagePostsPerUser = postsCount / usersCount;
-        averageCommentsPerUser = commentsCount / usersCount;
-        averageCommentsPerPost = commentsCount / postsCount;
+        if(usersCount == 0) {
+            averagePostsPerUser = 0;
+            averageCommentsPerUser = 0;
+        } else {
+            averagePostsPerUser = postsCount / usersCount;
+            averageCommentsPerUser = commentsCount / usersCount;
+        }
+        if (postsCount == 0) {
+            averageCommentsPerPost = 0;
+        } else {
+            averageCommentsPerPost = commentsCount / postsCount;
+        }return;
     }
 
     public void printAdvStatistics() {
