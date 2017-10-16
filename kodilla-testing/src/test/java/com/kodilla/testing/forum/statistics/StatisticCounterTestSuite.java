@@ -5,8 +5,7 @@ import org.junit.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class StatisticCounterTestSuite {
     private static int testCounter;
