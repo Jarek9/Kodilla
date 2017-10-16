@@ -34,25 +34,25 @@ public class ShapeCollectorTestSuite {
         //WHEN
         shapeCollector.addFigure(square);
         //THEN
-        Assert.assertTrue(shapeCollector.getShape().contains(square));
+        Assert.assertTrue(shapeCollector.getShapes().contains(square));
     }
     @Test
     public void testRemoveFigure(){
         //GIVEN
         ShapeCollector shapeCollector = new ShapeCollector();
         Triangle triangle = new Triangle();
-        shapeCollector.getShape().add(triangle);
+        shapeCollector.getShapes().add(triangle);
         //WHEN
         shapeCollector.removeFigure(triangle);
         //THEN
-        Assert.assertFalse(shapeCollector.getShape().contains(triangle));
+        Assert.assertFalse(shapeCollector.getShapes().contains(triangle));
     }
     @Test
     public void testGetFigure(){
         //GIVEN
         ShapeCollector shapeCollector = new ShapeCollector();
         Circle circle = new Circle();
-        shapeCollector.getShape().add(circle);
+        shapeCollector.getShapes().add(circle);
         //WHEN
         Shape result = shapeCollector.getFigure(0);
         //THEN
@@ -64,7 +64,7 @@ public class ShapeCollectorTestSuite {
         //GIVEN
         ShapeCollector shapeCollector = new ShapeCollector();
         Triangle triangle = new Triangle();
-        shapeCollector.getShape().add(triangle);
+        shapeCollector.getShapes().add(triangle);
         //WHEN
         String result = shapeCollector.showFigures();
         //THEN
