@@ -50,12 +50,12 @@ public class StatisticCounter {
             averageCommentsPerUser = 0;
         } else {
             averagePostsPerUser = postsCount / usersCount;
-            averageCommentsPerUser = commentsCount / usersCount;
+            averageCommentsPerUser = (double)commentsCount / usersCount;
         }
         if (postsCount == 0) {
             averageCommentsPerPost = 0;
         } else {
-            averageCommentsPerPost = commentsCount / postsCount;
+            averageCommentsPerPost = (double)commentsCount / postsCount;
         }return;
     }
 

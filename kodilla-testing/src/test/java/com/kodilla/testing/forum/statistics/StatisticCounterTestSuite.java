@@ -98,7 +98,7 @@ public class StatisticCounterTestSuite {
         when(statisticsMock.usersNames()).thenReturn(TestUsersList);
         statistics.calculateAdvStatistics(statisticsMock);
         //Then
-        Assert.assertEquals(1, statistics.getAverageCommentsPerPost(),0);
+        Assert.assertEquals(1.2, statistics.getAverageCommentsPerPost(),0);
         Assert.assertEquals(4, statistics.getAverageCommentsPerUser(),0);
         Assert.assertEquals(3, statistics.getAveragePostsPerUser(),0);
         Assert.assertEquals(1200, statistics.getCommentsCount(),0);
