@@ -1,17 +1,14 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
 
 public class StreamMain {
     public static void main(String[] args) {
 
 
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
 
-        poemBeautifier.beautify("Tekst po upiększeniu", string ->"ABC "+ string +" ABC" );
-        poemBeautifier.beautify("Tekst po upiększeniu", string -> string.toUpperCase() );
-        poemBeautifier.beautify("Tekst po upiększeniu", string -> string.substring(6));
-        poemBeautifier.beautify("Tekst po upiększeniu", string -> string.replace("Tekst", "TEKST"));
 
     }
 }
