@@ -1,7 +1,5 @@
 package com.kodilla.exception.challenge;
 
-import java.io.IOException;
-
 public class FirstChallenge {
 
     public double divide(double a, double b) throws ArithmeticException {
@@ -25,15 +23,13 @@ public class FirstChallenge {
             double result = firstChallenge.divide(3, 0);
 
             System.out.println(result);
-        } catch (NullPointerException e)
+        } catch (ArithmeticException e)
         {
-            e.printStackTrace();
-        } catch(Exception e) {
+            System.out.println(e);
 
-            System.out.println("Divide by 0 error");
         }finally
         {
-            System.out.println("Please enter new values");
+            System.out.println("Divide by 0 error");
         }
 
     }
