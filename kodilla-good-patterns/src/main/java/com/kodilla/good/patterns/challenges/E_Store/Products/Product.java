@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.E_Store;
+package com.kodilla.good.patterns.challenges.E_Store.Products;
 
 public class Product {
 

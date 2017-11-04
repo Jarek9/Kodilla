@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.E_Store;
+package com.kodilla.good.patterns.challenges.E_Store.Users;
 
 public class User {
     private String name;
