@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.E_Store;
 
 public class MailService implements InformationService {
 

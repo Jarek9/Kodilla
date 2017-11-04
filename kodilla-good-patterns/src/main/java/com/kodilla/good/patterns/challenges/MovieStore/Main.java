@@ -1,9 +1,8 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.MovieStore;
 
 import java.util.stream.Collectors;
 
 public class Main {
-    //This class refers MovieStore task 9.1, pls do not use.
     public static void main(String[] args) {
 
         MovieStore movieStore = new MovieStore();
