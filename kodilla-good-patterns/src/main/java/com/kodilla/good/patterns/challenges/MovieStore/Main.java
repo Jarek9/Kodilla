@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.MovieStore;
 
 import java.util.stream.Collectors;
 
@@ -8,7 +8,7 @@ public class Main {
         MovieStore movieStore = new MovieStore();
 
         String listOfMovies = movieStore.getMovies().entrySet().stream()
-                .flatMap(MovieStore -> MovieStore.getValue().stream())
+                .flatMap(title -> title.getValue().stream())
                 .collect(Collectors.joining("!"));
         System.out.println(listOfMovies);
     }
