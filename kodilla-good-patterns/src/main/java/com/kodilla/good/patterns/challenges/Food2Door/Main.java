@@ -1,22 +1,23 @@
 package com.kodilla.good.patterns.challenges.Food2Door;
 
 
-import com.kodilla.good.patterns.challenges.E_Store.Orders.OrderRequest;
-import com.kodilla.good.patterns.challenges.E_Store.Orders.OrderRequestRetriever;
-import com.kodilla.good.patterns.challenges.E_Store.Orders.ProductOrderRepository;
-import com.kodilla.good.patterns.challenges.E_Store.Orders.ProductOrderService;
-import com.kodilla.good.patterns.challenges.E_Store.Service.CompletionOrderService;
-import com.kodilla.good.patterns.challenges.E_Store.Service.MailService;
+import com.kodilla.good.patterns.challenges.Food2Door.Orders.Order;
+import com.kodilla.good.patterns.challenges.Food2Door.Orders.OrderProcessor;
+import com.kodilla.good.patterns.challenges.Food2Door.Orders.OrderReceiver;
+import com.kodilla.good.patterns.challenges.Food2Door.Orders.SuppliersOrderService;
+import com.kodilla.good.patterns.challenges.Food2Door.Service.MailService;
 
 public class Main {
 
     public static void main(String[] args) {
-        OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
-        OrderRequest orderRequest = orderRequestRetriever.retrive();
 
-        ProductOrderService productOrderService = new ProductOrderService(
-                new MailService(), new CompletionOrderService(), new ProductOrderRepository());
-        productOrderService.process(orderRequest);
+        OrderReceiver orderReceiver = new OrderReceiver();
+
+        Order order = orderReceiver.receive();
+
+        OrderProcessor orderProcessor = new OrderProcessor(
+                new MailService(), new SuppliersOrderService());
+        orderProcessor.orderDto(order);
 
     }
 }

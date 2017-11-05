@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.Food2Door.Suppliers;
+package com.kodilla.good.patterns.challenges.Food2Door.Providers;
 
 import com.kodilla.good.patterns.challenges.Food2Door.Orders.Order;
 
