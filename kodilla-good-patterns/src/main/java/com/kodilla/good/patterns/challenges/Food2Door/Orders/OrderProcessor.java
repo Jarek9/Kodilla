@@ -14,7 +14,7 @@ public class OrderProcessor {
         this.orderService = orderService;
     }
 
-    public OrderDto orderDto(Order order)
+    public OrderDto createOrderDto(Order order)
     {
         boolean isOrdered = orderService.order(order.getFoodProvider(), order.getQuantity(), order.getFoodType());
 

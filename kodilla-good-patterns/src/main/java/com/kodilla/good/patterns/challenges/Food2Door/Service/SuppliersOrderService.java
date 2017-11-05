@@ -1,6 +1,5 @@
-package com.kodilla.good.patterns.challenges.Food2Door.Orders;
+package com.kodilla.good.patterns.challenges.Food2Door.Service;
 
-import com.kodilla.good.patterns.challenges.Food2Door.Service.OrderService;
 import com.kodilla.good.patterns.challenges.Food2Door.Providers.FoodProvider;
 
 public class SuppliersOrderService implements OrderService {

@@ -8,7 +8,7 @@ public class Order {
     private String foodType;
     private int quantity;
     private double price;
-    private double orderValue = quantity * price;
+    private double orderValue;
 
     public Order(FoodProvider FoodProvider, String foodType, int quantity, double price,
                  double orderValue) {

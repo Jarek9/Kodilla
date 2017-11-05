@@ -4,7 +4,7 @@ package com.kodilla.good.patterns.challenges.Food2Door;
 import com.kodilla.good.patterns.challenges.Food2Door.Orders.Order;
 import com.kodilla.good.patterns.challenges.Food2Door.Orders.OrderProcessor;
 import com.kodilla.good.patterns.challenges.Food2Door.Orders.OrderReceiver;
-import com.kodilla.good.patterns.challenges.Food2Door.Orders.SuppliersOrderService;
+import com.kodilla.good.patterns.challenges.Food2Door.Service.SuppliersOrderService;
 import com.kodilla.good.patterns.challenges.Food2Door.Service.MailService;
 
 public class Main {
@@ -17,7 +17,7 @@ public class Main {
 
         OrderProcessor orderProcessor = new OrderProcessor(
                 new MailService(), new SuppliersOrderService());
-        orderProcessor.orderDto(order);
+        orderProcessor.createOrderDto(order);
 
     }
 }
