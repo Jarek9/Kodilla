@@ -5,21 +5,33 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class Gui extends JFrame implements ActionListener {
 
-    JLabel lDepartureChooser, lDestinationChooser, JResult;
+    JLabel lDepartureChooser, lDestinationChooser, lConnectionChooser, JResult;
     JMenuBar menuBar;
     JButton bSearch, bReset;
     JMenu menuFile, menuHelp;
     JMenuItem menuClose, menuAbout;
-    JComboBox bDepartureCity, bArrivalCity;
-    private String arrivalCity;
-    private String departureCity;
+    JComboBox bDepartureCity, bArrivalCity, bConnecting;
+    JTextArea textField;
+
 
 
     public Gui() {
         setLayout(null);
+        try {
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
         menuBar = new JMenuBar();
         menuFile = new JMenu("File");
         menuClose = new JMenuItem("Close");
@@ -43,15 +55,21 @@ public class Gui extends JFrame implements ActionListener {
         menuClose.setFont(new Font("SansSerif", Font.BOLD, 20));
         menuAbout.setFont(new Font("SansSerif", Font.BOLD, 20));
 
-        JResult = new JLabel();
-        JResult.setBounds(100, 50, 600, 400);
+        textField = new JTextArea();
+        textField.setWrapStyleWord(true);
+        JScrollPane scrollPane = new JScrollPane(textField);
+        scrollPane.setBounds(20, 135, 760, 270);
+        textField.setFont(new Font("SansSerif", Font.BOLD, 16));
+        textField.setForeground(Color.BLUE);
+        add(scrollPane);
+
+        JResult = new JLabel("Searching results: ", JLabel.LEFT);
         JResult.setFont(new Font("SansSerif", Font.BOLD, 20));
-        JResult.setForeground(Color.BLUE);
-        JResult.setText("Searching results: ");
+        JResult.setBounds(20, 90, 250, 25);
         add(JResult);
 
         bDepartureCity = new JComboBox();
-        bDepartureCity.setBounds(100, 100, 150, 40);
+        bDepartureCity.setBounds(20, 40, 110, 40);
         bDepartureCity.setFont(new Font("SansSerif", Font.BOLD, 20));
         bDepartureCity.addItem(" ");
         bDepartureCity.addItem("Gdansk");
@@ -63,8 +81,21 @@ public class Gui extends JFrame implements ActionListener {
         add(bDepartureCity);
         bDepartureCity.addActionListener(this);
 
-        bArrivalCity = new JComboBox<String>();
-        bArrivalCity.setBounds(320, 100, 150, 40);
+        bConnecting = new JComboBox();
+        bConnecting.setBounds(250, 40, 110, 40);
+        bConnecting.setFont(new Font("SansSerif", Font.BOLD, 20));
+        bConnecting.addItem(" ");
+        bConnecting.addItem("Gdansk");
+        bConnecting.addItem("Krakow");
+        bConnecting.addItem("Warsaw");
+        bConnecting.addItem("Wroclaw");
+        bConnecting.addItem("Lodz");
+        bConnecting.addItem("Szczecin");
+        add(bConnecting);
+        bConnecting.addActionListener(this);
+
+        bArrivalCity = new JComboBox();
+        bArrivalCity.setBounds(450, 40, 110, 40);
         bArrivalCity.setFont(new Font("SansSerif", Font.BOLD, 20));
         bArrivalCity.addItem(" ");
         bArrivalCity.addItem("Gdansk");
@@ -77,26 +108,33 @@ public class Gui extends JFrame implements ActionListener {
         bArrivalCity.addActionListener(this);
 
         bSearch = new JButton("SEARCH !");
-        bSearch.setBounds(550, 100, 150, 40);
+        bSearch.setBounds(620, 40, 130, 40);
         add(bSearch);
         bSearch.addActionListener(this);
         bSearch.setFont(new Font("SansSerif", Font.BOLD, 20));
 
-        bReset = new JButton("RESET!");
-        bReset.setBounds(320, 650, 150, 40);
+        bReset = new JButton("RESET");
+        bReset.setBounds(320, 410, 130, 40);
         add(bReset);
         bReset.addActionListener(this);
         bReset.setFont(new Font("SansSerif", Font.BOLD, 20));
 
-        lDepartureChooser = new JLabel("Choose starting point", JLabel.RIGHT);
-        lDepartureChooser.setBounds(90, 80, 160, 20);
+        lDepartureChooser = new JLabel("Choose starting point", JLabel.LEFT);
+        lDepartureChooser.setBounds(15, 20, 160, 20);
         lDepartureChooser.setFont(new Font("SansSerif", Font.BOLD, 15));
         add(lDepartureChooser);
 
-        lDestinationChooser = new JLabel("Choose destination point", JLabel.RIGHT);
-        lDestinationChooser.setBounds(300, 80, 180, 20);
+        lConnectionChooser = new JLabel("Choose connection", JLabel.LEFT);
+        lConnectionChooser.setBounds(250, 20, 160, 20);
+        lConnectionChooser.setFont(new Font("SansSerif", Font.BOLD, 15));
+        add(lConnectionChooser);
+
+        lDestinationChooser = new JLabel("Choose destination", JLabel.LEFT);
+        lDestinationChooser.setBounds(450, 20, 180, 20);
         lDestinationChooser.setFont(new Font("SansSerif", Font.BOLD, 15));
         add(lDestinationChooser);
+
+
 
     }
 
@@ -116,26 +154,40 @@ public class Gui extends JFrame implements ActionListener {
             }
 
         }
-        if (e.getSource() == bDepartureCity) {
-            String departureCity = bDepartureCity.getSelectedItem().toString();
+
+        if (e.getSource() == menuAbout)
+        {
+            JOptionPane.showMessageDialog(null, "Simple Flight Searcher \n Version Alfa 0.1", "Tytuł",
+                    JOptionPane.WARNING_MESSAGE);
         }
-        if (e.getSource() == bArrivalCity) {
-            String arrivalCity = bArrivalCity.getSelectedItem().toString();
-        }
+
         if (e.getSource() == bSearch)
         {
 
-            flightSearch.searchDepartureCity(bDepartureCity.getSelectedItem().toString());
-            flightSearch.searchArrivalCity(bArrivalCity.getSelectedItem().toString());
+            List d = flightSearch.searchDepartureCity(bDepartureCity.getSelectedItem().toString());
+            List a = flightSearch.searchArrivalCity(bArrivalCity.getSelectedItem().toString());
+            List t = flightSearch.searchConnectingFlight(bDepartureCity.getSelectedItem().toString(),
+                    bConnecting.getSelectedItem().toString(), bArrivalCity.getSelectedItem().toString());
+            String departure = bDepartureCity.getSelectedItem().toString();
+            String arrival = bArrivalCity.getSelectedItem().toString();
+            textField.setText("");
+            textField.setText("Searching flights from: " + departure + "\n "
+            + "\n " + d.toString() + "\n " + "\nSearching flights to: " + arrival + "\n "
+                    + "\n " + a.toString() + "\n " + "\n " + "Searching connecting flights from: "
+                    + departure + " to: " + arrival + "\n "+ "\n " + t.toString());
+
         }
+
+        if (e.getSource() == bReset)
+        {
+
+            textField.setText(" ");
+
+        }
+
+
     }
 
-    public String getArrivalCity() {
-        return arrivalCity;
-    }
 
-    public String getDepartureCity() {
-        return departureCity;
-    }
 
 }
