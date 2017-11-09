@@ -69,7 +69,7 @@ public class Gui extends JFrame implements ActionListener {
         add(JResult);
 
         bDepartureCity = new JComboBox();
-        bDepartureCity.setBounds(20, 40, 110, 40);
+        bDepartureCity.setBounds(20, 40, 120, 40);
         bDepartureCity.setFont(new Font("SansSerif", Font.BOLD, 20));
         bDepartureCity.addItem(" ");
         bDepartureCity.addItem("Gdansk");
@@ -82,7 +82,7 @@ public class Gui extends JFrame implements ActionListener {
         bDepartureCity.addActionListener(this);
 
         bConnecting = new JComboBox();
-        bConnecting.setBounds(250, 40, 110, 40);
+        bConnecting.setBounds(250, 40, 120, 40);
         bConnecting.setFont(new Font("SansSerif", Font.BOLD, 20));
         bConnecting.addItem(" ");
         bConnecting.addItem("Gdansk");
@@ -95,7 +95,7 @@ public class Gui extends JFrame implements ActionListener {
         bConnecting.addActionListener(this);
 
         bArrivalCity = new JComboBox();
-        bArrivalCity.setBounds(450, 40, 110, 40);
+        bArrivalCity.setBounds(450, 40, 120, 40);
         bArrivalCity.setFont(new Font("SansSerif", Font.BOLD, 20));
         bArrivalCity.addItem(" ");
         bArrivalCity.addItem("Gdansk");
@@ -157,7 +157,7 @@ public class Gui extends JFrame implements ActionListener {
 
         if (e.getSource() == menuAbout)
         {
-            JOptionPane.showMessageDialog(null, "Simple Flight Searcher \n Version Alfa 0.1", "Tytuł",
+            JOptionPane.showMessageDialog(null, "Simple Flight Searcher \n Version Alfa 0.1", "TITLE",
                     JOptionPane.WARNING_MESSAGE);
         }
 

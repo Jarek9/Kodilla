@@ -7,7 +7,7 @@ public class StatisticCounter {
     private int commentsCount;
     private double averagePostsPerUser;
     private double averageCommentsPerUser;
-    private double averageCommentsPerPost;
+    private  double averageCommentsPerPost;
 
     public StatisticCounter(Statistics statistics) {
         this.statistics = statistics;
@@ -37,7 +37,7 @@ public class StatisticCounter {
         return averageCommentsPerUser;
     }
 
-    public double getAverageCommentsPerPost() {
+    public  double getAverageCommentsPerPost() {
         return averageCommentsPerPost;
     }
 
@@ -55,7 +55,7 @@ public class StatisticCounter {
         if (postsCount == 0) {
             averageCommentsPerPost = 0;
         } else {
-            averageCommentsPerPost = (double)commentsCount / postsCount;
+            averageCommentsPerPost = (double) commentsCount / postsCount;
         }return;
     }
 
