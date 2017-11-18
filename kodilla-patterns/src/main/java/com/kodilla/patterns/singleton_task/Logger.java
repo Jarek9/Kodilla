@@ -1,10 +1,10 @@
-package com.kodilla.patterns.singleton;
+package com.kodilla.patterns.singleton_task;
 
 public class Logger {
     private static Logger loggerInstance = null;
-    private String lastLog = "";
+    private static String lastLog = "";
 
-    private Logger() {
+    public Logger() {
     }
 
     public static Logger getInstance() {
