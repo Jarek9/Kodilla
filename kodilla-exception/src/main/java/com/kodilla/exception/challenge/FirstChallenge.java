@@ -1,5 +1,9 @@
 package com.kodilla.exception.challenge;
 
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class FirstChallenge {
 
     public double divide(double a, double b) throws ArithmeticException {
@@ -31,6 +35,7 @@ public class FirstChallenge {
         {
             System.out.println("Divide by 0 error");
         }
+
 
     }
 }
