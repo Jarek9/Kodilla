@@ -19,7 +19,6 @@ public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
 
-
     @Test
     public void testInvoiceDaoSave() {
         //Given
@@ -35,7 +34,7 @@ public class InvoiceDaoTestSuite {
         product.getItems().add(item);
         product.getItems().add(item1);
 
-        Invoice invoice = new Invoice("INV/12/0001");
+        Invoice invoice = new Invoice("INV/12/01");
 
         item.setInvoice(invoice);
         item1.setInvoice(invoice);
