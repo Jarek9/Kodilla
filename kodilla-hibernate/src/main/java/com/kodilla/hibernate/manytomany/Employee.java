@@ -6,9 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedQuery(
-        name = "Employee.retrieveEmployeeByLastname",
+        name = "Employee.findEmployeeByLastName",
         query = "FROM Employee WHERE lastname = :LASTNAME"
 )
+@NamedNativeQuery(
+        name = "Employee.findEmployeeByChars",
+        query = "SELECT * FROM EMPLOYEES " +
+                "WHERE LASTNAME LIKE \"%\":LASTNAME \"%\"",
+        resultClass = Employee.class)
+
 
 @Entity
 @Table(name = "EMPLOYEES")
