@@ -40,7 +40,7 @@ public class DatabaseSearcherTest {
         employeeDao.save(lindaKovalsky);
         int lindaKovalskyId = lindaKovalsky.getId();
 
-        String characters = "smi";
+        String characters = "son";
         List<Employee> foundEmployeeList = databaseSearcherFacade.processEmployeeSearch(characters);
 
         //Then
@@ -71,7 +71,7 @@ public class DatabaseSearcherTest {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
 
-        String characters = "soft";
+        String characters = "chin";
         List<Company> foundCompanyList = databaseSearcherFacade.processCompanySearch(characters);
 
         //Then
