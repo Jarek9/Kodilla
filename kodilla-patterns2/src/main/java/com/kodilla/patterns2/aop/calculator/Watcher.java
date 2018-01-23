@@ -36,5 +36,35 @@ public class Watcher {
         return result;
     }
 
+    @Around("execution(* com.kodilla.patterns2.aop.calculator.Calculator.iterationFactorial(..))")
+    public Object measureTimeIterationFactorial(final ProceedingJoinPoint proceedingJoinPoint)throws Throwable {
+        Object result;
+        try {
+            long begin = System.currentTimeMillis();
+            result = proceedingJoinPoint.proceed();
+            long end = System.currentTimeMillis();
+            LOGGER.info("Time consumed: " + (end - begin) + "[ms]");
+        } catch (Throwable throwable) {
+            LOGGER.error(throwable.getMessage());
+            throw throwable;
+        }
 
+        return result;
+    }
+
+    @Around("execution(* com.kodilla.patterns2.aop.calculator.Calculator.streamFactorial(..))")
+    public Object measureTimeStreamFactorial(final ProceedingJoinPoint proceedingJoinPoint)throws Throwable {
+        Object result;
+        try {
+            long begin = System.currentTimeMillis();
+            result = proceedingJoinPoint.proceed();
+            long end = System.currentTimeMillis();
+            LOGGER.info("Time consumed: " + (end - begin) + "[ms]");
+        } catch (Throwable throwable) {
+            LOGGER.error(throwable.getMessage());
+            throw throwable;
+        }
+
+        return result;
+    }
 }
