@@ -4,6 +4,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 @Component
 @EnableAspectJAutoProxy
@@ -29,7 +31,7 @@ public class Calculator {
     }
 
     public BigDecimal factorial(BigDecimal n) {
-        if(n.compareTo(BigDecimal.ONE) > 0) {
+        if (n.compareTo(BigDecimal.ONE) > 0) {
             return n.multiply(factorial(n.subtract(BigDecimal.ONE)));
         } else if (n.equals(BigDecimal.ONE) || n.equals(BigDecimal.ZERO)) {
             return BigDecimal.ONE;
@@ -38,4 +40,21 @@ public class Calculator {
         }
     }
 
-}
+    public BigDecimal iterationFactorial(int n) {
+        if (n < 0) throw new IllegalArgumentException("Factorial argument is negative!");
+        BigDecimal s = BigDecimal.valueOf(1);
+        for (int i = 1; i <= n; i++) {
+            s = s.multiply(BigDecimal.valueOf(i));
+        }
+        return s;
+    }
+
+    public BigDecimal streamFactorial(int n) {
+        if (n < 0) throw new IllegalArgumentException("Factorial argument is negative!");
+        return IntStream.rangeClosed( 1, n )
+                .mapToObj(BigDecimal::valueOf)
+                .reduce(BigDecimal::multiply).get();
+
+    }
+    }
+

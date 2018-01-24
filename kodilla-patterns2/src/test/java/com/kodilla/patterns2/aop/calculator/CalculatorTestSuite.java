@@ -67,4 +67,27 @@ public class CalculatorTestSuite {
         LOGGER.info("Testing factorial method");
         assertTrue(BigDecimal.ONE.compareTo(result) < 0);
     }
+
+    @Test
+    public void testIterationFactorial() {
+        //Given
+        //When
+        BigDecimal result = calculator.iterationFactorial(1000);
+        //Then
+        LOGGER.info("Testing iteration factorial method");
+        assertTrue(BigDecimal.ONE.compareTo(result) < 0);
+
+    }
+
+    @Test
+    public void testStreamFactorial() {
+        //Given
+        //When
+        BigDecimal result = calculator.streamFactorial(1000);
+        //Then
+        LOGGER.info("Testing iteration factorial method");
+//        System.out.println(result);
+        assertTrue(BigDecimal.ONE.compareTo(result) < 0);;
+
+    }
 }
